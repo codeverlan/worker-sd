@@ -1,0 +1,83 @@
+{
+  "endpoints": {
+    "sd15": {
+      "name": "Stable Diffusion 1.5",
+      "docker_image": "runpod/worker-comfyui:latest-base",
+      "description": "SD 1.5 models with 512x512 default resolution",
+      "gpu_types": ["NVIDIA GeForce RTX 3070", "NVIDIA GeForce RTX 3080", "NVIDIA GeForce RTX 4070"],
+      "template_vars": {
+        "MODEL_TYPE": "SD15",
+        "DEFAULT_WIDTH": 512,
+        "DEFAULT_HEIGHT": 512
+      }
+    },
+    "sd2": {
+      "name": "Stable Diffusion 2.x",
+      "docker_image": "runpod/worker-comfyui:latest-base",
+      "description": "SD 2.0/2.1 models with 768x768 default resolution",
+      "gpu_types": ["NVIDIA GeForce RTX 3080", "NVIDIA GeForce RTX 4070", "NVIDIA GeForce RTX 4080"],
+      "template_vars": {
+        "MODEL_TYPE": "SD2",
+        "DEFAULT_WIDTH": 768,
+        "DEFAULT_HEIGHT": 768
+      }
+    },
+    "sdxl": {
+      "name": "Stable Diffusion XL",
+      "docker_image": "runpod/worker-comfyui:latest-sdxl",
+      "description": "SDXL models with 1024x1024 default resolution",
+      "gpu_types": ["NVIDIA GeForce RTX 4070", "NVIDIA GeForce RTX 4080", "NVIDIA GeForce RTX 4090", "NVIDIA RTX A5000"],
+      "template_vars": {
+        "MODEL_TYPE": "SDXL",
+        "DEFAULT_WIDTH": 1024,
+        "DEFAULT_HEIGHT": 1024
+      }
+    },
+    "sd3": {
+      "name": "Stable Diffusion 3",
+      "docker_image": "runpod/worker-comfyui:latest-sd3",
+      "description": "SD3 models with 1024x1024 default resolution",
+      "gpu_types": ["NVIDIA GeForce RTX 4080", "NVIDIA GeForce RTX 4090", "NVIDIA RTX A6000"],
+      "template_vars": {
+        "MODEL_TYPE": "SD3",
+        "DEFAULT_WIDTH": 1024,
+        "DEFAULT_HEIGHT": 1024
+      }
+    },
+    "flux_schnell": {
+      "name": "FLUX.1 Schnell",
+      "docker_image": "runpod/worker-comfyui:latest-flux1-schnell",
+      "description": "FLUX.1 Schnell (fast) model",
+      "gpu_types": ["NVIDIA GeForce RTX 4080", "NVIDIA GeForce RTX 4090", "NVIDIA RTX A6000"],
+      "template_vars": {
+        "MODEL_TYPE": "FLUX_SCHNELL",
+        "DEFAULT_WIDTH": 1024,
+        "DEFAULT_HEIGHT": 1024
+      }
+    },
+    "flux_dev": {
+      "name": "FLUX.1 Dev",
+      "docker_image": "runpod/worker-comfyui:latest-flux1-dev",
+      "description": "FLUX.1 Dev (high quality) model",
+      "gpu_types": ["NVIDIA GeForce RTX 4090", "NVIDIA RTX A6000", "NVIDIA RTX A100"],
+      "template_vars": {
+        "MODEL_TYPE": "FLUX_DEV",
+        "DEFAULT_WIDTH": 1024,
+        "DEFAULT_HEIGHT": 1024
+      }
+    }
+  },
+  "deployment_notes": {
+    "gpu_requirements": {
+      "SD15": "8GB+ VRAM recommended",
+      "SD2": "10GB+ VRAM recommended", 
+      "SDXL": "12GB+ VRAM recommended",
+      "SD3": "16GB+ VRAM recommended",
+      "FLUX": "20GB+ VRAM recommended"
+    },
+    "cost_optimization": {
+      "note": "Use lower-tier GPUs for SD1.5/SD2, higher-tier for SDXL/SD3/FLUX",
+      "scaling": "Deploy multiple endpoints for different model types based on usage patterns"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+model_type,endpoint_id,url
+sd15,b31v2rs4miedps,https://api.runpod.ai/v2/b31v2rs4miedps
+sd2,jp1x3l4djxeut5,https://api.runpod.ai/v2/jp1x3l4djxeut5
+sdxl,gjqjavs8kxe4ls,https://api.runpod.ai/v2/gjqjavs8kxe4ls
+sd3,2grk270njwwyjc,https://api.runpod.ai/v2/2grk270njwwyjc
+flux-schnell,fyn1l6oonx8776,https://api.runpod.ai/v2/fyn1l6oonx8776
+flux-dev,78mlef35sk73lu,https://api.runpod.ai/v2/78mlef35sk73lu

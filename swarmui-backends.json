@@ -1,0 +1,44 @@
+[
+  {
+    "name": "RunPod-SD15",
+    "type": "runpod",
+    "url": "https://api.runpod.ai/v2/b31v2rs4miedps",
+    "api_key": "",
+    "model": "sd15"
+  },
+  {
+    "name": "RunPod-SD2",
+    "type": "runpod", 
+    "url": "https://api.runpod.ai/v2/jp1x3l4djxeut5",
+    "api_key": "",
+    "model": "sd2"
+  },
+  {
+    "name": "RunPod-SDXL",
+    "type": "runpod",
+    "url": "https://api.runpod.ai/v2/gjqjavs8kxe4ls", 
+    "api_key": "",
+    "model": "sdxl"
+  },
+  {
+    "name": "RunPod-SD3",
+    "type": "runpod",
+    "url": "https://api.runpod.ai/v2/2grk270njwwyjc",
+    "api_key": "",
+    "model": "sd3"
+  },
+  {
+    "name": "RunPod-FLUX-Schnell",
+    "type": "runpod",
+    "url": "https://api.runpod.ai/v2/fyn1l6oonx8776",
+    "api_key": "",
+    "model": "flux-schnell"
+  },
+  {
+    "name": "RunPod-FLUX-Dev", 
+    "type": "runpod",
+    "url": "https://api.runpod.ai/v2/78mlef35sk73lu",
+    "api_key": "",
+    "model": "flux-dev"
+  }
+]

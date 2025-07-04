@@ -1,0 +1,43 @@
+# Environment
+.env
+.env.local
+*.env
+
+# API Keys
+runpod_api_key.txt
+api_keys/
+
+# Logs
+*.log
+logs/
+deployment_logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test outputs
+test_results/
+test_outputs/
+
+# Deployment artifacts
+.deployed/
+.deployment_cache/
