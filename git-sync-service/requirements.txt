@@ -1,0 +1,32 @@
+# Core dependencies
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+httpx==0.25.2
+redis==5.0.1
+
+# Database
+sqlalchemy==2.0.23
+alembic==1.13.0
+
+# Git operations
+GitPython==3.1.40
+
+# Async support
+aiofiles==23.2.1
+
+# Logging and monitoring
+structlog==23.2.0
+prometheus-client==0.19.0
+
+# Webhook validation
+cryptography>=41.0.0
+
+# Configuration
+pydantic-settings==2.1.0
+python-dotenv==1.0.0
+
+# Utilities
+schedule==1.2.0
+tenacity==8.2.3
+jinja2==3.1.2

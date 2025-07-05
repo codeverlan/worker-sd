@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  git-sync:
+    build: .
+    container_name: git-sync-service
+    restart: unless-stopped
+    environment:
+      # GitHub Configuration
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - GITHUB_USER=${GITHUB_USER}
+      
+      # Gitea Configuration  
+      - GITEA_URL=http://cloud-dev:3020
+      - GITEA_TOKEN=${GITEA_TOKEN}
+      - GITEA_USER=${GITEA_USER}
+      
+      # Sync Configuration
+      - SYNC_INTERVAL=300  # Check every 5 minutes
+      - WEBHOOK_SECRET=${WEBHOOK_SECRET}
+      - CONFLICT_RESOLUTION=github_wins  # or gitea_wins, manual
+      - DRY_RUN=false
+      - LOG_LEVEL=INFO
+      
+      # Database
+      - DATABASE_URL=sqlite:///data/sync.db
+      
+    ports:
+      - "9000:8080"  # Webhook receiver
+    volumes:
+      - sync_data:/data
+      - sync_logs:/logs
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - sync_network
+      - gitea-docker_gitea_network  # Connect to Gitea network
+    depends_on:
+      - redis
+      
+  redis:
+    image: redis:alpine
+    container_name: git-sync-redis
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    networks:
+      - sync_network
+
+  # webhook-proxy:
+  #   image: nginx:alpine
+  #   container_name: git-sync-webhook-proxy
+  #   restart: unless-stopped
+  #   ports:
+  #     - "9001:80"  # Public webhook endpoint
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  #   networks:
+  #     - sync_network
+  #   depends_on:
+  #     - git-sync
+
+volumes:
+  sync_data:
+  sync_logs:
+  redis_data:
+
+networks:
+  sync_network:
+    driver: bridge
+  gitea-docker_gitea_network:
+    external: true
